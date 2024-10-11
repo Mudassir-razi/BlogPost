@@ -1,0 +1,27 @@
+<!-- 
+Online HTML, CSS and JavaScript editor to run code online.
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static '/style.css' %}" />
+  <title>BlogPost</title>
+</head>
+
+<body>
+	<div class="formHolderBox">
+      <h1 class="leftAlignedText">Login Failed</h1>
+      <p class="leftAlignedText">Invalid information</p>
+      <br><br><br><br><br><br>
+      <form class="inputContainer" method="POST">
+        {% csrf_token %}
+        <button class="buttonBox" type="submit">Try Again</button>
+      </form>
+  	</div>
+</body>
+
+</html>

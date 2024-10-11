@@ -1,0 +1,28 @@
+<!-- 
+Online HTML, CSS and JavaScript editor to run code online.
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static '/style.css' %}" />
+  <title>BlogPost</title>
+</head>
+
+<body>
+	<div class="formHolderBox">
+      <h1 class="leftAlignedText">Login Successful</h1>
+      <br><br><br><br><br><br>
+      <form class="inputContainer" method="POST">
+        {% csrf_token%}
+        <button class="buttonBox" type"submit" name="action" value="dash">Go To dashboard</button>
+        <br><br><br>
+        <button class="buttonBox" type"submit" name="action" value="logout">Log Out</button>
+      </form>
+  	</div>
+</body>
+
+</html>
