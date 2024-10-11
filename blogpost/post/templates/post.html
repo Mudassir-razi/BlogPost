@@ -1,0 +1,28 @@
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static '/style1.css' %}" />
+    <title>BlogPost</title>
+  </head>
+  
+  
+  <body>
+      <div class="formHolderBox">
+        <h1 class="leftAlignedText">Create a post</h1>
+        <p class="leftAlignedText">Bole deo ki ache tomar mone</p>
+        <br>
+        <form class="inputContainer" method="POST">
+          {% csrf_token %}
+          <input class="inputBox"  id="{{form.title.id_for_label}}" name="{{form.title.name}}" placeholder="Title"> </input>
+          <br><br><br>
+          <input class="postBox"  id="{{form.content.id_for_label}}" name="{{form.content.name}}" placeholder="Your post"> </input>
+          
+          <br><br><br>
+          <button class="buttonBox" type="submit" name="action" value="post"> Post</button>
+          <br>
+          <button class="buttonBox" type="submit" name="action" value= "cancel"> Cancel</button>
+        </form>
+        </div>
+  </body>
