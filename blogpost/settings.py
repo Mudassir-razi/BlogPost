@@ -10,9 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
+from dotenv import load_dotenv
 from pathlib import Path
 import os
 import dj_database_url
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -85,8 +87,10 @@ WSGI_APPLICATION = 'blogpost.wsgi.application'
 #     }
 # }
 
+load_dotenv()
+
 DATABASES = {
-    "default": dj_database_url.parse(os.environ.get("DATABASE_URL"))
+    "default": dj_database_url.parse("postgresql://blogpost_kwjv_user:0018MWTUrcexsjbYHwVHikSmuEZFFI2s@dpg-cs4hg05svqrc738c8l10-a.singapore-postgres.render.com/blogpost_kwjv")
 }
 
 
