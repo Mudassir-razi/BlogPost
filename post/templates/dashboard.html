@@ -20,20 +20,21 @@ Online HTML, CSS and JavaScript editor to run code online.
             <br><br><br><br>
             <button class="fixedButton" name="action" value="logout">Log out</button>
         </div>
-    </form>
-	<div class="formHolderBox">
-    {% if posts %}
+       {% if posts %}
         {% for p in posts %}
+      <div class="formHolderBox">
       <h1 class="leftAlignedText">{{p.title}}</h1>
       <p class="postDate">{{p.writer}}e</p>
       <p class="postDate">{{p.date}}e</p>
       <br>
       <p class="postContent">{{p.content}}
       </p>
-	<br>
+      </div>
       {% endfor %}
       {% else %}
+      <div class="formHolderBox"></div>
       <h1 class="leftAlignedText">No Post Available</h1>
+      </div>
       {% endif %}
   	</div>
 </body>
