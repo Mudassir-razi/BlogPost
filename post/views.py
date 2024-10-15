@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.utils import timezone
 from django.contrib.auth import logout
@@ -8,6 +9,7 @@ from . import models
 # Create your views here.
 #rendering all the posts
 
+@login_required
 def viewDashboard(request):
     if request.method == "POST":
         action = request.POST.get("action")
@@ -20,6 +22,7 @@ def viewDashboard(request):
 
     return render(request, "dashboard.html", {"posts" : posts})
 
+@login_required
 def createPost(request):
     if request.method == "POST":
         form = forms.Form_createPost(request.POST)
