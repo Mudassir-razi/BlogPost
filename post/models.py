@@ -12,3 +12,14 @@ class post(models.Model):
 
     def __str__(self):
         return self.title
+
+
+#comment model
+class comment(models.Model):
+    content = models.CharField(max_length=2000)
+    author = models.CharField(max_length=150)
+    date = models.DateTimeField()
+    origin_post = models.ForeignKey(post, on_delete=models.CASCADE, related_name="comment_set")
+
+    def __str__(self):
+        return self.content[:5]+"..."
