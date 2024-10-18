@@ -24,11 +24,42 @@ Online HTML, CSS and JavaScript editor to run code online.
         {% for p in posts %}
       <div class="formHolderBox">
       <h1 class="leftAlignedText">{{p.title}}</h1>
-      <p class="postDate">{{p.writer}}e</p>
-      <p class="postDate">{{p.date}}e</p>
+      <p class="postDate">{{p.writer}}</p>
+      <p class="postDate">{{p.date}}</p>
       <br>
       <p class="postContent">{{p.content}}
       </p>
+
+
+      <!-- Edit Start-->
+
+      <div style="background-color: #3e9ee2; padding: 10px; border-radius: 10px;">
+
+        <!-- Comment form -->
+        <form action="" method="post">
+          {% csrf_token %}
+          <input class="inputBox"  id="{{comment_form.content.id_for_label}}" name="{{comment_form.content.name}}" placeholder="Type comment"> </input>
+          <input name="{{comment_form.origin_post.name}}" value="{{p.id}}" hidden> </input>
+          <button class="buttonBox" type="submit" name="action" value="comment">Submit</button>
+        </form>
+
+
+        <!-- Comments -->
+          {% if p.comments %}
+            {% for comment in p.comments %}
+            <div style="background-color: #1388db; padding: 5px; margin: 5px;">
+              <p class="postContent"> <b>{{comment.author}}</b> {{comment.content}}</p>
+                <p class="postDate">{{comment.date}}</p>
+            </div>
+            {% endfor %}
+          {% else %}
+            <p class="leftAlignedText">Be the first person to comment</p>
+          {% endif %}
+        <!-- Comments end -->
+
+      </div>
+      <!-- Edit End-->
+
       </div>
       {% endfor %}
       {% else %}

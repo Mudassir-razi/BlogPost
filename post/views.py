@@ -12,15 +12,27 @@ from . import models
 @login_required
 def viewDashboard(request):
     if request.method == "POST":
+        comment_form = forms.Form_createComment(request.POST)
         action = request.POST.get("action")
         if action == "post":
             return redirect('/post/newpost')
         elif action == "logout":
             logout(request)
             return redirect('/reg/login')
-    posts = models.post.objects.all()
+        
+        elif action == "comment" and comment_form.is_valid(): 
+            comment = comment_form.save(commit=False)
+            comment.author = request.user
+            comment.date = timezone.now()
+            comment.save()
 
-    return render(request, "dashboard.html", {"posts" : posts})
+    comment_form = forms.Form_createComment()       
+
+    posts = models.post.objects.all().order_by("-id")
+    for post in posts:
+        post.comments = post.comment_set.all().order_by("-id")
+        
+    return render(request, "dashboard.html", {"posts" : posts, "comment_form": comment_form})
 
 @login_required
 def createPost(request):

@@ -8,3 +8,10 @@ class Form_createPost(forms.ModelForm):
         model = models.post
         fields = ['title', 'content']
 
+
+class Form_createComment(forms.ModelForm):
+
+     class Meta:
+        model = models.comment
+        fields = ['content', 'origin_post']
+
