@@ -92,7 +92,7 @@ WSGI_APPLICATION = 'blogpost.wsgi.application'
 load_dotenv()
 
 DATABASES = {
-     "default": dj_database_url.parse("postgresql://blogpost_kwjv_user:0018MWTUrcexsjbYHwVHikSmuEZFFI2s@dpg-cs4hg05svqrc738c8l10-a.singapore-postgres.render.com/blogpost_kwjv")
+     "default": dj_database_url.parse("postgresql://blogpost_fhaw_user:P3hYaeElIV7zrY86VBCtrtesAcB2JAVG@dpg-cs9liojqf0us739i80ig-a.singapore-postgres.render.com/blogpost_fhaw")
 }
 
 
