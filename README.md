@@ -1,4 +1,4 @@
-#A simple Blog posting web application. It has features such as-
+# A simple Blog posting web application. It has features such as-
 
 1. Log in, signup, user database
 2. Database for storing posts by users with relevant information (time, username)
